@@ -237,7 +237,20 @@ fun BookDetailScreen(
         }
 
         //Sección extra
-        Column() { }
+        Column(
+            modifier = Modifier
+                .padding(start = 10.dp,end = 10.dp)
+        ) {
+            Text(
+                text = "Descripcion",
+                fontWeight = FontWeight.Bold,
+                style = typography.titleLarge,
+            )
+            Text(
+                text = book?.description ?: "Sin Descripción",
+                style = typography.bodyLarge,
+            )
+        }
 
     }
 }
