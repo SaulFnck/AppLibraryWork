@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,6 +44,7 @@ fun BookDetailScreen(
             .background(colors.background)
     ){
 
+        //Imagen e información
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -52,10 +54,12 @@ fun BookDetailScreen(
                 //.padding(innerPadding)
                 .padding(15.dp),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        )
+        {
             AsyncImage(
                 model = book?.imageUrl ?: "",
                 contentDescription = book?.title ?: "Sin titulo",
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .width(150.dp)
                     .height(250.dp)
@@ -80,12 +84,13 @@ fun BookDetailScreen(
                 )
             }
 
-            //Iconos
+            //Info del libro
             Row(
                 modifier = Modifier
                     .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.Center
-            ) {
+            )
+            {
                 //Rating
                 Column(
                     modifier = Modifier
@@ -181,19 +186,7 @@ fun BookDetailScreen(
             }
         }
 
-        /*
-        AsyncImage(
-            model = book?.imageUrl ?: "",
-            contentDescription = book?.title ?: "Sin titulo",
-            modifier = Modifier.size(100.dp)
-        )
-        Text(
-            text = book?.title ?: "Sin titulo"
-        )
-        Text(
-            text = book?.author ?: "Sin Autor"
-        )
-        */
+
 
     }
 }
